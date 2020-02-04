@@ -8,8 +8,8 @@ const typeDefs = `
 
 const resolvers = {
     Query: {
-        info : ()=> null
-       // info : ()=>`This is the API of a Hackernews Clone`
+        //info : ()=> null
+       info : ()=>`This is the API of a Hackernews Clone`
     }
 };
 
