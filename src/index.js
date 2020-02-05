@@ -28,42 +28,13 @@ const Mutation = require('./resolvers/Mutation');
 const User = require('./resolvers/User');
 const Link = require('./resolvers/Link');
 
+
 const resolvers = {
   Query,
   Mutation,
   User,
   Link
 }
-    
-    //2
-    Mutation: {
-        post: (root,args,context) => {
-                return context.prisma.createLink({
-                  url: args.url,
-                  description: args.description
-                })
-        },
-        updateLink: (parent, args) =>{
-            
-            const oldLink = links.find( link => link.id === args.id );
-
-            //console.log( oldLink );
-
-            links[ oldLink.id ] ={
-                url : args.url !== undefined ? args.url : oldLink.url,
-                description : args.description !== undefined ? args.description : oldLink.description,
-                id: oldLink.id
-            };
-            console.log('Sending');
-            console.log(   links[ oldLink.id ] );
-            console.log('The array is ');
-            console.log(links);
-
-            return links[ oldLink.id ];
-        }
-    }
-
-  };
 
 const server = new GraphQLServer({
     typeDefs: './src/schema.graphql',
