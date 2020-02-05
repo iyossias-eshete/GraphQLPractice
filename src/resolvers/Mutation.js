@@ -48,7 +48,7 @@ function post(parent, args, context, info) {
   }
 
 module.exports = {
-    sign,
+    signup,
     login,
     post
 }
