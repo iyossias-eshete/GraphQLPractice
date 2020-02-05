@@ -1,10 +1,6 @@
 import { GraphQLServer } from 'graphql-yoga';
 
-const typeDefs = gql`
-    type Query{
-        info: String!
-    }
-`;
+
 
 const resolvers = {
     Query: {
@@ -13,7 +9,7 @@ const resolvers = {
 };
 
 const server = new GraphQLServer({
-    typeDefs,
+    typeDefs : './src/schema.graphql',
     resolvers
 });
 
