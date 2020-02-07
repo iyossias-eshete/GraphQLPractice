@@ -1,3 +1,5 @@
+//check order in which the args are passed and make sure that they correspond
+
 import { ApolloServer, gql } from 'apollo-server';
 import jwt  from "jsonwebtoken";
 import bcrypt from "bcryptjs";
