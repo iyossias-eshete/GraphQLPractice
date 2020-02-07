@@ -1,8 +1,10 @@
 //check order in which the args are passed and make sure that they correspond
 
-import { ApolloServer, gql } from 'apollo-server';
+import { ApolloServer, gql, IResolvers } from 'apollo-server';
 import jwt  from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import { GraphQLResolveInfo } from 'graphql';
+import { Context } from 'apollo-server-core';
 
 const SECRET = 'SECRET';
 
@@ -134,17 +136,35 @@ const typeDefs = gql`
 
   }
 
-  const resolvers = {
+///
+// export type GraphQLFieldResolver<
+//   TSource,
+//   TContext,
+//   TArgs = { [argument: string]: any },
+// > = (
+//   source: TSource,
+//   args: TArgs,
+//   context: TContext,
+//   info: GraphQLResolveInfo,
+// ) => mixed;
+  ///
+
+  const resolvers : IResolvers = {
     Query: {
       users: () => users
     },
 
     Mutation: {
-      testMut: (sex: string)=>{
-        return { value1 : 's', value2 : 9};
-      },
-      register: async (email : string, password: string, firstName: string, lastName: string , accountNumber: number, sex: string)=>{
-          let newUser : userType = { id : -1 ,  email, password, firstName, lastName, accountNumber, sex  };
+      // testMut: (sex: string)=>{
+      //   return { value1 : 's', value2 : 9};
+      // },
+      // register: async (email : string, password: string, firstName: string, lastName: string , accountNumber: number, sex: string)=>{
+      //   return new Object();
+      // },
+
+      register: async ( parent, { email , password, firstName, lastName , accountNumber, sex}, context: Context)=>{
+       // return new Object();
+            let newUser : userType = { id : -1 ,  email, password, firstName, lastName, accountNumber, sex  };
           
          // await registerUser(newUser);
          // console.log('Done')
@@ -155,7 +175,22 @@ const typeDefs = gql`
           console.log(authenticatedUserData);
 
           return authenticatedUserData;
+       console.log('Here');
       },
+
+      // register: async (email : string, password: string, firstName: string, lastName: string , accountNumber: number, sex: string)=>{
+      //     let newUser : userType = { id : -1 ,  email, password, firstName, lastName, accountNumber, sex  };
+          
+      //    // await registerUser(newUser);
+      //    // console.log('Done')
+          
+      //     let authenticatedUserData : authenticatedUserType = await registerUser(newUser);
+
+      //     //Remove:
+      //     console.log(authenticatedUserData);
+
+      //     return authenticatedUserData;
+      // },
       signIn: async (email : string, password: string )=>{
         const user: userType = { id: -1, accountNumber: 1 , email : 'pspd@gmail.com', firstName: 'James', lastName: 'Grechen', password: 'ppp' , sex: 'Male'};  
         return { user, token: '' };
