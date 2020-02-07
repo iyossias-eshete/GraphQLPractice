@@ -1,0 +1,10 @@
+mutation{
+  register(email: "s",password: "sd", firstName: "sd", lastName: "sd", accountNumber: 2, sex:"Male"){
+    token,
+    user{
+      lastName,
+      accountNumber,
+      sex
+    }
+  }
+}
