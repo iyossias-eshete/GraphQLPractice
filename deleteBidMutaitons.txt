@@ -1,0 +1,38 @@
+# {
+#   users{
+
+#     lastName,
+#     accountNumber,
+#     sex
+#   }
+# }
+#   mutation{
+#   register(email: "Jsd@gmail.com", password: "asdas",
+# 	firstName: "OGD", lastName: "sdfsjdkfj", accountNumber: 12,
+#     sex:"Male"
+# ){
+#     user{
+#       lastName,
+#     accountNumber,
+# 		sex,
+#     password
+#     }
+#   }
+#   }
+
+# mutation{
+#   register(email:"123@", password: "sds", firstName:"LerOy", lastName:"Sane", accountNumber: 1, sex: "Male"){
+#   user{
+#     lastName,
+#     accountNumber,
+#     sex,
+#     password
+#   },
+#   token
+#   }
+# }
+{
+bids{
+  id,name,description
+}
+}
