@@ -1,3 +1,7 @@
+// compare this with the version deleteIndexTS2.ts
+//problem is the mutation
+// error on async and the parameters
+// compare with the working one to see problem
 import { ApolloServer, gql, IResolvers } from 'apollo-server';
 import jwt  from "jsonwebtoken";
 import bcrypt from "bcryptjs";
