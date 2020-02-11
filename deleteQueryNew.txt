@@ -1,0 +1,90 @@
+# invalid account example
+# mutation {
+#   register(
+#     firstName: "Collins"
+#     lastName: "Muller"
+#     email: "Leroy@Sane.com"
+#     password: "ManCity"
+#     accountNumber: 3
+#     sex: "Male"
+#   ) {
+#     token
+#     user {
+#       id
+#     }
+#   }
+# }
+
+#valid example
+# mutation {
+#   register(
+#     firstName: "Thomas"
+#     lastName: "Tukils"
+#     email: "Tukils@Dortumand.com"
+#     password: "ManCity"
+#     accountNumber: 2
+#     sex: "Male"
+#   ) {
+#     token
+#     user {
+#       id
+#     }
+#   }
+# }
+
+# query{
+#   users{
+#     id,
+#     firstName,
+#     lastName,
+#     accountNumber
+#     sex
+#     password
+#   }
+# }
+
+# mutation {
+#   signIn(
+#     email: "Bernado@ManCity.com"
+#     password: "ManCity"
+#   ) {
+#     token
+#     user {
+#       email
+# 			id
+#       firstName
+#     }
+#   }
+# }
+
+# mutation{
+#   createBid(name: "Rod Mon", description : "Silver" ){
+#     id,
+#     name,
+#     description
+#     creatorId
+#   }
+#   }
+#  mutation{ 
+#   updateBid(id : 5 , name: "Bizar", startingPrice : 19000, status : Closed){ #name :"Red Moon Painting", description :"La Misera blood moon"){
+#     name,
+#     startingPrice,
+#     creatorId,
+#     status,
+#     description
+#   }
+# }
+
+# mutation{
+#   deleteBid(id : 5)
+# }
+query {
+  bids{
+    name,
+    description,
+    creatorId,
+    status,
+    startingPrice
+    id
+  }
+}
