@@ -1,4 +1,8 @@
-# invalid account example
+#
+#{
+#  "Authorization" : "Bearer eyJhbGciOiJIUzI1NiJ9.Ng.fGceC_g2yO0Z7PoQNDP_ogT94hERX_SNxFi5wxxYZpE"
+#}
+#invalid account example
 # mutation {
 #   register(
 #     firstName: "Collins"
